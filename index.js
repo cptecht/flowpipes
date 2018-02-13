@@ -52,7 +52,7 @@ function funcFactory(Input) {
 			if (Break(output) === true) {
 				return output
 			} else {
-				return funcLoop(output)(Break)(Pipe)
+				return funcFactory(output)(Break)(Pipe)
 			}
 		}
 	}
@@ -64,7 +64,7 @@ const Exported = {
 	OutputValve: funcOutputValve,
 	InputY: funcInputY,
 	OutputY: funcOutputY,
-	Factory: funcLoop
+	Factory: funcFactory
 }
 
 module.exports = Exported

@@ -8,8 +8,12 @@ function myControl(input) {
 	}
 }
 
+function myIncrement(number) {
+	return number+1
+}
+
 function myPipe(data) {
-	return Flow.InputPipe(data+1)(Flow.OutputValve)(Flow.OutputValve)
+	return Flow.InputPipe(data)(myIncrement)(Flow.OutputValve)
 }
 
 const result = Flow.Loop(0)(myControl)(myPipe)
